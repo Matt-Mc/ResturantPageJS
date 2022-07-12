@@ -5,6 +5,7 @@ const Initialize = () => {
     console.log(content)
 
     content.appendChild(headerRender());
+    content.appendChild(bodyRender());
 
 
 }
@@ -17,18 +18,21 @@ const headerRender = () => {
 
     const resturantName = document.createElement("h1");
     resturantName.classList.add("resturant-name");
-    resturantName.textContent = "Uncle Tony's";
+    resturantName.textContent = "Uncle Tony's Pizza";
 
     const navbar = document.createElement("div");
     navbar.classList.add("navbar")
 
     const homeButton = document.createElement("button");
+    homeButton.textContent = "Home"
     homeButton.classList.add("Button")
 
     const menuButton = document.createElement("button");
+    menuButton.textContent = "Menu"
     menuButton.classList.add("Button")
 
     const contactButton = document.createElement("button");
+    contactButton.textContent = "Contact"
     contactButton.classList.add("Button")
 
 
@@ -44,6 +48,14 @@ const headerRender = () => {
 
 const bodyRender = () => {
 
+    const body = document.createElement("div")
+    body.classList.add("body")
+
+
+
+
+
+    return body
 
 }
 
