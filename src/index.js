@@ -1,1 +1,4 @@
-console.log("working")
+import Initialize from "./pages/Initialize"
+
+Initialize();
+
