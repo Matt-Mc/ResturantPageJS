@@ -1,17 +1,22 @@
+import waves from './img/waves.svg'
+
+import Menu from './Menu';
+import About from './About';
+import MainBody from './mainBody'
 
 
 const Initialize = () => {
     const content = document.getElementById("Content")
-    console.log(content)
 
     content.appendChild(headerRender());
-    content.appendChild(bodyRender());
-
+    content.appendChild(curveRender());
+    content.appendChild(MainBody());
 
 }
 
 
 const headerRender = () => {
+    const content = document.getElementById("Content")
     const header = document.createElement("div")
     header.classList.add("header")
 
@@ -23,22 +28,34 @@ const headerRender = () => {
     const navbar = document.createElement("div");
     navbar.classList.add("navbar")
 
-    const homeButton = document.createElement("button");
+    var homeButton = document.createElement("button");
     homeButton.textContent = "Home"
     homeButton.classList.add("Button")
+    homeButton.addEventListener('click', (e) => {
+        clearPage()
+        content.appendChild(MainBody())
+    })
 
-    const menuButton = document.createElement("button");
+    var menuButton = document.createElement("button");
     menuButton.textContent = "Menu"
     menuButton.classList.add("Button")
+    menuButton.addEventListener('click', (e) => {
+        clearPage()
+        content.appendChild(Menu())
+    })
 
-    const contactButton = document.createElement("button");
-    contactButton.textContent = "Contact"
-    contactButton.classList.add("Button")
+    var aboutButton = document.createElement("button");
+    aboutButton.textContent = "About"
+    aboutButton.classList.add("Button")
+    aboutButton.addEventListener('click', (e) => {
+        content.appendChild(clearPage())
+        About()
+    })
 
 
     navbar.appendChild(homeButton);
     navbar.appendChild(menuButton);
-    navbar.appendChild(contactButton);
+    navbar.appendChild(aboutButton);
 
     header.appendChild(resturantName);
     header.appendChild(navbar);
@@ -46,18 +63,29 @@ const headerRender = () => {
     return header
 }
 
-const bodyRender = () => {
+const curveRender = () => {
+    const curve = document.createElement("div");
 
-    const body = document.createElement("div")
-    body.classList.add("body")
+    const img = new Image();
+    img.src = waves;
+
+    curve.appendChild(img);
 
 
+    return curve
+}
 
 
-
-    return body
+function clearPage(){
+    const body = document.querySelector(".bodyContent");
+    try{
+        body.remove();
+    }catch{
+        console.log("No Element to Delete")
+    }
 
 }
+
 
 
 export default Initialize;
